@@ -4,5 +4,8 @@
     # nativeBuildInputs is usually what you want -- tools you need to run
     nativeBuildInputs = [ 
       pkgs.stack
+      pkgs.purescript
+      pkgs.pscid
+      pkgs.spago
     ];
 }
