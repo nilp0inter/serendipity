@@ -20,6 +20,10 @@ description:         Please see the README on GitHub at <https://github.com/nilp
 
 dependencies:
 - base >= 4.7 && < 5
+- aeson
+- servant-server
+- wai
+- warp
 
 library:
   source-dirs: src
@@ -33,6 +37,7 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
+    - base
     - serendipity
 
 tests:
@@ -44,4 +49,9 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
+    - base
     - serendipity
+    - hspec
+    - hspec-wai
+    - hspec-wai-json
+    - aeson

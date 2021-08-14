@@ -68,4 +68,4 @@ packages:
 
 nix:
   enable: true
-  packages: [gmp]  # As per https://github.com/commercialhaskell/stack/issues/2944#issuecomment-379550480
+  packages: [gmp zlib]  # As per https://github.com/commercialhaskell/stack/issues/2944#issuecomment-379550480
