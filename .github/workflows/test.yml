@@ -19,4 +19,9 @@ jobs:
       with:
         path: ~/.stack
         key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('serendipity.cabal') }}
+    - name: Cache nix store
+      uses: actions/cache@v2
+      with:
+        path: /nix/store
+        key: ${{ runner.os }}-${{ hashFiles('stack.yaml') }}-${{ hashFiles('default.nix') }}
     - run: nix-shell --run "make test"
