@@ -9,3 +9,4 @@ magazines to the digital world.
 - Install Nix
 - Run `nix-shell`
 - Check everything is alright with `make test`
+- Build and run with `make build run`
