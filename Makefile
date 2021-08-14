@@ -6,7 +6,7 @@ build: webapp/dist/index.js webapp/dist/index.html
 webapp/dist/index.js: webapp/src/Main.purs webapp/packages.dhall webapp/spago.dhall
 	cd webapp && spago bundle-app --to dist/index.js
 
-test:
+test: webapp/dist/index.js webapp/dist/index.html
 	cd webapp && spago test
 	stack test
 
