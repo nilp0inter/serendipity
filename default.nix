@@ -7,5 +7,6 @@
       pkgs.purescript
       pkgs.pscid
       pkgs.spago
+      pkgs.gnumake
     ];
 }
