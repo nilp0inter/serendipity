@@ -14,4 +14,9 @@ jobs:
       with:
         name: nilp0inter-serendipity-build
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+    - name: Cache Haskell dependencies (Stack)
+      uses: actions/cache@v2
+      with:
+        path: ~/.stack
+        key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('serendipity.cabal') }}
     - run: nix-shell --run "make test"
