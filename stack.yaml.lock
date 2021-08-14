@@ -11,6 +11,13 @@ packages:
       sha256: 13269fcc1c871ee1548d31010f0278484318bffbd9b8e0c0bfdfab4e27d6c3d5
   original:
     hackage: servant-static-th-1.0.0.0@sha256:7dc46a426d8c78ee0386729159e8bbc18ff98e0dd700a2c723c87901b204fa6c,3883
+- completed:
+    hackage: gi-poppler-0.18.25@sha256:6f1d953016d8082b56b9ff7d57cdcb4da4563d3f8032dd91d494f860c317703b,8986
+    pantry-tree:
+      size: 363
+      sha256: 1372e80ecdd446b8ced31b1b0b6a817d3f3e398492343350fa1cfbb541142c1b
+  original:
+    hackage: gi-poppler-0.18.25@sha256:6f1d953016d8082b56b9ff7d57cdcb4da4563d3f8032dd91d494f860c317703b,8986
 snapshots:
 - completed:
     size: 585817

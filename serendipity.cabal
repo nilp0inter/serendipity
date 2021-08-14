@@ -32,6 +32,8 @@ library
   build-depends:
       aeson
     , base >=4.7 && <5
+    , gi-cairo
+    , gi-poppler
     , servant-server
     , servant-static-th
     , wai
@@ -48,6 +50,8 @@ executable serendipity-exe
   build-depends:
       aeson
     , base
+    , gi-cairo
+    , gi-poppler
     , serendipity
     , servant-server
     , servant-static-th
@@ -66,6 +70,8 @@ test-suite serendipity-test
   build-depends:
       aeson
     , base
+    , gi-cairo
+    , gi-poppler
     , hspec
     , hspec-wai
     , hspec-wai-json

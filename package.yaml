@@ -25,6 +25,8 @@ dependencies:
 - wai
 - warp
 - servant-static-th
+- gi-poppler
+- gi-cairo
 
 library:
   source-dirs: src

@@ -43,6 +43,7 @@ packages:
 # extra-deps: []
 extra-deps:
   - servant-static-th-1.0.0.0@sha256:7dc46a426d8c78ee0386729159e8bbc18ff98e0dd700a2c723c87901b204fa6c,3883
+  - gi-poppler-0.18.25@sha256:6f1d953016d8082b56b9ff7d57cdcb4da4563d3f8032dd91d494f860c317703b,8986
 
 # Override default flag values for local packages and extra-deps
 # flags: {}
@@ -70,4 +71,11 @@ extra-deps:
 
 nix:
   enable: true
-  packages: [gmp zlib]  # As per https://github.com/commercialhaskell/stack/issues/2944#issuecomment-379550480
+  packages:
+    - gmp  # As per https://github.com/commercialhaskell/stack/issues/2944#issuecomment-379550480
+    - zlib
+    - gnome3.gobject-introspection
+    - gtksourceview3
+    - gnome3.webkitgtk
+    - pkg-config
+    - poppler_gi
