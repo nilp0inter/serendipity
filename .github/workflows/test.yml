@@ -7,6 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.3.4
+    - name: Cache nix store
+      uses: actions/cache@v2
+      with:
+        path: /nix/store
+        key: ${{ runner.os }}-${{ hashFiles('stack.yaml') }}-${{ hashFiles('default.nix') }}
     - uses: cachix/install-nix-action@v13
       with:
         nix_path: nixpkgs=channel:nixos-unstable
@@ -19,9 +24,4 @@ jobs:
       with:
         path: ~/.stack
         key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('serendipity.cabal') }}
-    - name: Cache nix store
-      uses: actions/cache@v2
-      with:
-        path: /nix/store
-        key: ${{ runner.os }}-${{ hashFiles('stack.yaml') }}-${{ hashFiles('default.nix') }}
     - run: nix-shell --run "make test"
