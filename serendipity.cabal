@@ -25,6 +25,7 @@ source-repository head
 library
   exposed-modules:
       Lib
+      PdfSvg
   other-modules:
       Paths_serendipity
   hs-source-dirs:
@@ -33,9 +34,13 @@ library
       aeson
     , base >=4.7 && <5
     , gi-cairo
+    , gi-cairo-connector
+    , gi-cairo-render
     , gi-poppler
+    , haskell-gi-base
     , servant-server
     , servant-static-th
+    , text
     , wai
     , warp
   default-language: Haskell2010
@@ -51,10 +56,14 @@ executable serendipity-exe
       aeson
     , base
     , gi-cairo
+    , gi-cairo-connector
+    , gi-cairo-render
     , gi-poppler
+    , haskell-gi-base
     , serendipity
     , servant-server
     , servant-static-th
+    , text
     , wai
     , warp
   default-language: Haskell2010
@@ -71,13 +80,17 @@ test-suite serendipity-test
       aeson
     , base
     , gi-cairo
+    , gi-cairo-connector
+    , gi-cairo-render
     , gi-poppler
+    , haskell-gi-base
     , hspec
     , hspec-wai
     , hspec-wai-json
     , serendipity
     , servant-server
     , servant-static-th
+    , text
     , wai
     , warp
   default-language: Haskell2010

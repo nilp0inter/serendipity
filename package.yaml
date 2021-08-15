@@ -25,8 +25,12 @@ dependencies:
 - wai
 - warp
 - servant-static-th
+- haskell-gi-base
 - gi-poppler
 - gi-cairo
+- gi-cairo-render
+- gi-cairo-connector
+- text
 
 library:
   source-dirs: src

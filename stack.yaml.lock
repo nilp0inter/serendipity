@@ -18,6 +18,20 @@ packages:
       sha256: 1372e80ecdd446b8ced31b1b0b6a817d3f3e398492343350fa1cfbb541142c1b
   original:
     hackage: gi-poppler-0.18.25@sha256:6f1d953016d8082b56b9ff7d57cdcb4da4563d3f8032dd91d494f860c317703b,8986
+- completed:
+    hackage: gi-cairo-render-0.1.0@sha256:cb27b31b373c55c5b384a331e439d1ebc2fb3e02c8a58c9bfb83218d5467af2b,3553
+    pantry-tree:
+      size: 1655
+      sha256: 5cf0f21a23e2d49a50b0f46078890160d982469ff108d7a142eefa165347dc32
+  original:
+    hackage: gi-cairo-render-0.1.0@sha256:cb27b31b373c55c5b384a331e439d1ebc2fb3e02c8a58c9bfb83218d5467af2b,3553
+- completed:
+    hackage: gi-cairo-connector-0.1.0@sha256:a79c34c4f22f81a938c5835f623de55fdf1f0f08435897bad68f58e01ffd1464,1213
+    pantry-tree:
+      size: 238
+      sha256: 4414eca6922175779e3ec5d0eb932ee0d10307217a32ff6671a8f5efdd1bc4f0
+  original:
+    hackage: gi-cairo-connector-0.1.0@sha256:a79c34c4f22f81a938c5835f623de55fdf1f0f08435897bad68f58e01ffd1464,1213
 snapshots:
 - completed:
     size: 585817
