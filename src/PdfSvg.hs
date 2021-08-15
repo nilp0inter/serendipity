@@ -20,6 +20,8 @@ convertPage page svgFilename = do
   Render.withSVGSurface svgFilename width height $
     \surface -> do
       Render.renderWith surface $ do
+        Render.setSourceRGB 1 1 1
+        Render.paint
         Conn.toRender $ Page.pageRenderForPrinting page
         Render.showPage
       Render.surfaceFinish surface

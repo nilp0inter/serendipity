@@ -5,9 +5,35 @@
     <meta charset="UTF-8">
     <title>Serendipity</title>
     <style>
-      .page1 {}
-      .page3 {width:33vw;}
-      .page5 {width:19vw;}
+      body {
+        margin: 0px;
+        overflow-x: hidden;
+        touch-action: manipulation;
+      }
+      .controls {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+      }
+      .controls button {
+        font-size: xxx-large;
+      }
+      .controls input {
+        font-size: x-large;
+      }
+      .grid {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: stretch;
+        width: 100vw;
+        background-color: lightgray;
+      }
+      .page {
+        border: 1px solid black;
+        margin: 1vw;
+        min-width: 0;
+      }
     </style>
   </head>
 
