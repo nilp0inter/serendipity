@@ -25,8 +25,8 @@ convertPage page svgFilename = do
       Render.surfaceFinish surface
 
 
-pdf2svg :: Text -> Text -> Int32 -> IO ()
+pdf2svg :: String -> String -> Int32 -> IO ()
 pdf2svg pdfFile svgFile pageInd = do
-  pdf <- Document.documentNewFromFile pdfFile Nothing
+  pdf <- Document.documentNewFromFile (pack $ "file://" <> pdfFile) Nothing
   page <- Document.documentGetPage pdf pageInd
-  convertPage page (unpack svgFile)
+  convertPage page svgFile

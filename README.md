@@ -9,4 +9,6 @@ magazines to the digital world.
 - Install Nix
 - Run `nix-shell`
 - Check everything is alright with `make test`
-- Build and run with `make build run`
+- Build `make build`
+- Run `stack exec serendipity-exe <some-pdf-file>`
+- Point your browser to http://localhost:8080/

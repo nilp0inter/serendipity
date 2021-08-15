@@ -33,11 +33,13 @@ library
   build-depends:
       aeson
     , base >=4.7 && <5
+    , bytestring
     , gi-cairo
     , gi-cairo-connector
     , gi-cairo-render
     , gi-poppler
     , haskell-gi-base
+    , http-media
     , servant-server
     , servant-static-th
     , text
@@ -55,11 +57,13 @@ executable serendipity-exe
   build-depends:
       aeson
     , base
+    , bytestring
     , gi-cairo
     , gi-cairo-connector
     , gi-cairo-render
     , gi-poppler
     , haskell-gi-base
+    , http-media
     , serendipity
     , servant-server
     , servant-static-th
@@ -79,6 +83,7 @@ test-suite serendipity-test
   build-depends:
       aeson
     , base
+    , bytestring
     , gi-cairo
     , gi-cairo-connector
     , gi-cairo-render
@@ -87,6 +92,7 @@ test-suite serendipity-test
     , hspec
     , hspec-wai
     , hspec-wai-json
+    , http-media
     , serendipity
     , servant-server
     , servant-static-th

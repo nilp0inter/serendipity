@@ -31,6 +31,8 @@ dependencies:
 - gi-cairo-render
 - gi-cairo-connector
 - text
+- http-media
+- bytestring
 
 library:
   source-dirs: src

@@ -1,6 +1,9 @@
 module Main where
 
+import System.Environment
 import Lib
 
 main :: IO ()
-main = startApp
+main = do
+  [pdfFile] <- getArgs
+  startApp pdfFile
