@@ -19,4 +19,9 @@ jobs:
       with:
         path: ~/.stack
         key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('serendipity.cabal') }}
+    - name: Cache Purescript dependencies (Spago)
+      uses: actions/cache@v2
+      with:
+        path: webapp/.spago
+        key: ${{ runner.os }}-spago-${{ hashFiles('webapp/packages.dhall') }}-${{ hashFiles('webapp/spago.dhall') }}
     - run: nix-shell --run "make test"
