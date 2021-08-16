@@ -8,5 +8,6 @@
       pkgs.pscid
       pkgs.spago
       pkgs.gnumake
+      pkgs.nodejs-14_x
     ];
 }
