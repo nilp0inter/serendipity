@@ -20,8 +20,7 @@ main = HA.runHalogenAff do
 data Action = Increment Int
             | Decrement Int
             | Grid1
-            | Grid3
-            | Grid5
+            | Grid2
             | SetPage Int
             | Zoom Int
 
@@ -37,21 +36,17 @@ component =
     , eval: H.mkEval $ H.defaultEval { handleAction = handleAction }
     }
   where
-  initialState _ = { page: 1
-                   , grid: 3
+  initialState _ = { page: 0
+                   , grid: 2
                    }
 
   grid { grid: 1, page: p } = [ pageImage (p) ]
-  grid { grid: 3, page: p } = [ pageImage (p - 1)
-                              , pageImage (p)
-                              , pageImage (p + 1)
-                              ]
-  grid { grid: 5, page: p } = [ pageImage (p - 2)
-                              , pageImage (p - 1)
-                              , pageImage (p)
-                              , pageImage (p + 1)
-                              , pageImage (p + 2)
-                              ]
+  grid { grid: 2, page: p } 
+    | p == 0         = [ pageImage (p) ]
+    | p `mod` 2 == 0 = [ pageImage (p - 1)
+                       , pageImage (p) ]
+    | otherwise      = [ pageImage (p)
+                       , pageImage (p + 1) ]
   grid _ = []
           
   pageImage n = HH.img [ HP.src ("/book/" <> show n)
@@ -62,20 +57,19 @@ component =
                        ]
   pageControl state = HH.div
     [ HP.class_ $ H.ClassName $ "controls" ]
-    [ HH.button [ HE.onClick \_ -> Decrement 10 ] [ HH.text "<<" ]
-    , HH.button [ HE.onClick \_ -> Decrement 1 ] [ HH.text "<" ]
+    [ HH.button [ HE.onClick \_ -> Decrement $ state.grid * 5 ] [ HH.text "<<" ]
+    , HH.button [ HE.onClick \_ -> Decrement state.grid ] [ HH.text "<" ]
     , HH.input  [ HP.value $ show state.page
                 , HE.onValueChange \v -> SetPage $ fromMaybe state.page (fromString v)
                 ]
-    , HH.button [ HE.onClick \_ -> Increment 1 ] [ HH.text ">" ]
-    , HH.button [ HE.onClick \_ -> Increment 10 ] [ HH.text ">>" ]
+    , HH.button [ HE.onClick \_ -> Increment state.grid ] [ HH.text ">" ]
+    , HH.button [ HE.onClick \_ -> Increment $ state.grid * 5 ] [ HH.text ">>" ]
     ]
 
   gridControl state = HH.div
     [ HP.class_ $ H.ClassName $ "controls" ]
-    [ HH.button [ HE.onClick \_ -> Grid1 ] [ HH.text "1" ]
-    , HH.button [ HE.onClick \_ -> Grid3 ] [ HH.text "3" ]
-    , HH.button [ HE.onClick \_ -> Grid5 ] [ HH.text "5" ]
+    [ HH.button [ HE.onClick \_ -> Grid1 ] [ HH.text "Single" ]
+    , HH.button [ HE.onClick \_ -> Grid2 ] [ HH.text "Double" ]
     ]
 
   render state =
@@ -87,10 +81,9 @@ component =
 
   handleAction = case _ of
     Increment n -> H.modify_ \state -> state { page = state.page + n }
-    Decrement n -> H.modify_ \state -> if (state.page - n) > 1 then (state {page = (state.page - n)}) else state
+    Decrement n -> H.modify_ \state -> if state.page >= n then (state {page = (state.page - n)}) else state
     SetPage n -> H.modify_ \state -> state {page = n}
     Grid1 -> H.modify_ \state -> state { grid = 1 }
-    Grid3 -> H.modify_ \state -> state { grid = 3 }
-    Grid5 -> H.modify_ \state -> state { grid = 5 }
+    Grid2 -> H.modify_ \state -> state { grid = 2 }
     Zoom p -> H.modify_ \state -> state { page = p, grid = 1 }
 
