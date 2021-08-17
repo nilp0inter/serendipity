@@ -17,11 +17,15 @@ jobs:
     - name: Cache Haskell dependencies (Stack)
       uses: actions/cache@v2
       with:
-        path: ~/.stack
         key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('serendipity.cabal') }}
+        path: |
+          ~/.stack
+          .stack-work
     - name: Cache Purescript dependencies (Spago)
       uses: actions/cache@v2
       with:
-        path: webapp/.spago
-        key: ${{ runner.os }}-spago-${{ hashFiles('webapp/packages.dhall') }}-${{ hashFiles('webapp/spago.dhall') }}
+        key: ${{ runner.os }}-spago-${{ hashFiles('webapp/*.dhall') }}
+        path: |
+          webapp/.spago
+          webapp/output
     - run: nix-shell --run "make test"
